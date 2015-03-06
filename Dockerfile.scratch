@@ -1,0 +1,3 @@
+FROM scratch
+COPY ./logstash-forwarder /logstash-forwarder
+ENTRYPOINT ["/logstash-forwarder"]
