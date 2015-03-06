@@ -9,6 +9,6 @@ RUN git clone https://github.com/elasticsearch/logstash-forwarder.git "$_SOURCE"
 WORKDIR $_SOURCE
 
 RUN go get -v -d
-RUN CGO_ENABLED=0 go install -v -a -tags netgo -ldflags '-w'
+RUN CGO_ENABLED=0 go install -v -a -tags netgo -ldflags "-w -X main.Version '$(git describe --tags | sed s/^v//)'"
 
 ENTRYPOINT ["logstash-forwarder"]
