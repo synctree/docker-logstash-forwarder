@@ -1,4 +1,3 @@
 FROM scratch
-COPY ./logstash-forwarder /logstash-forwarder
-COPY ./certs/ca-certificates.crt /etc/ssl/ca-certificates.crt
+COPY ./scratch-root /
 ENTRYPOINT ["/logstash-forwarder"]

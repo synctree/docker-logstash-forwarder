@@ -16,7 +16,7 @@ docker logs -f $ID
 docker wait $ID
 
 # Update the local certificates.
-docker cp $ID:/etc/ssl/certs/ca-certificates.crt .
+docker cp $ID:/etc/ssl/certs/ca-certificates.crt scratch-root/etc/ssl/
 
 # Cleanup.
 docker rm -f $ID

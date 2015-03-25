@@ -9,7 +9,7 @@ cd `dirname "$0"`
 
 # Update the certificates.
 echo "Updating certificates..."
-./certs/update.sh
+./update-certs.sh
 
 docker build -f Dockerfile.build -t $APP-builder .
 
@@ -17,7 +17,7 @@ docker build -f Dockerfile.build -t $APP-builder .
 ID=$(docker create $APP-builder)
 
 # Update the local binary.
-docker cp $ID:/go/bin/$APP .
+docker cp $ID:/go/bin/$APP ./scratch-root/
 
 # Cleanup.
 docker rm -f $ID
